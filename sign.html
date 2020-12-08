@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用者登入/註冊</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        * {
+            font-size: large;
+            font-weight: bold;
+        }
+
+        #login{
+            text-align: center;
+        }
+
+        #talk {
+            display: none;
+        }
+
+        #table {
+            bottom: 0;
+        }
+        
+        .gust_say {
+            background-color: rgb(216, 200, 108);
+            padding: 5px;
+        }
+
+        .self_say {
+            background-color: cornflowerblue;
+            padding: 5px;
+        }
+
+        .msg_time, .msg_name{
+            font-size: 6px;
+        }
+
+        .msg_time {
+            font-size: 6px;
+            font-weight: lighter;
+        }
+
+        .self {
+            text-align: right;
+        }
+
+
+
+        #record li {
+            padding: 5px;
+            border: none;
+            margin: 10px 0;
+            position: relative;
+            background-color: cornsilk;
+        }
+
+        #list {
+            background-color: cornsilk;
+        }
+
+        #record {
+            padding-inline-start: 0px;
+            height: 450px;
+            overflow: auto;
+        }
+
+        #emoji{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container col-md-5  mt-5">
+        <div id="login" class="card">
+            <div class="card-header">
+                <ul class="nav nav-pills row">
+                    <li class="nav-item col">
+                        <a class="nav-link  active" id="user_in" href="#">登入</a>
+                    </li>
+                    <li class="nav-item col">
+                        <a class="nav-link" id="user_create" href="#">建立</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="cardbody text-white">
+                <form>
+                    <div class="form-group mb-5 mt-5" id="Login">
+                        <label for="">登入帳號</label>
+                        <input type="text" class="form-control w-75 m-auto" name="account" id="login_account"
+                            placeholder='email帳戶'>
+                        <br>
+                        <label for="">登入密碼</label>
+                        <input type="text" class="form-control  w-75 m-auto" name="password" id="login_password"
+                            placeholder='密碼'>
+                        <br>
+                        <button type="button" id="login_btn" class="btn btn-success">登入</button>
+                    </div>
+                    <div class="form-group  mb-5 mt-5" id="Signup">
+                        <label for="">建立帳號</label>
+                        <input type="text" class="form-control  w-75 m-auto" name="" id="create_account"
+                            placeholder='email帳戶'>
+                        <br>
+                        <label for="">建立密碼</label>
+                        <input type="text" class="form-control  w-75 m-auto" name="" id="create_password"
+                            placeholder='密碼'>
+                        <br>
+                        <label for="">使用者暱稱</label>
+                        <input type="text" class="form-control  w-75 m-auto" name="" id="create_name" placeholder='暱稱'>
+                        <br>
+                        <button type="button" id="creat_btn" class="btn btn-success">建立</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+        <div id="talk">
+            <div id="list">
+                <ul id="record"></ul>
+            </div>
+            <div id="table" class="form-group">
+                <label for="content">說點什麼:
+                    <input type="text" id="content" name="content" class="form-control mt-2 mb-2 d-inline-block">
+                </label>
+                <button id="po" type="button" class="btn btn-primary">送出</button>
+                <button id="back" type="button" class="btn btn-primary">返回登入</button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+
+
+    <script src="change.js"></script>
+    <script src="firebase-data.js"></script>
+    <script src="load.js"></script>
+    <script src="talking.js"></script>
+</body>
+
+</html>
